@@ -18,12 +18,21 @@ export function CounterView() {
   }, [count])
 
   return (
-    <div style={{ maxWidth: 400, margin: "40px auto", textAlign: "center" }}>
-      <h1>カウンター</h1>
-      <p style={{ fontSize: 32 }}>{count}</p>
-      <div style={{ marginTop: 16, display: "flex", justifyContent: "center", gap: 8 }}>
-        <button onClick={handlePlusButtonClick}>プラス</button>
-        <button onClick={handleMinusButtonClick}>マイナス</button>
+    <div className="max-w-md mx-auto mt-10 text-center">
+      <h1 className="text-2xl font-bold">カウンター</h1>
+      <p className="text-4xl my-4">{count}</p>
+      <div className="flex justify-center gap-4">
+        <button
+         className="px-4 py-2 rounded border border-gray-300 hover:bg-gray-50 active:scale-95"
+         onClick={handlePlusButtonClick}>
+          プラス
+        </button>
+        <button
+         className="px-4 py-2 rounded border border-gray-300 hover:bg-gray-50 active:scale-95"
+         onClick={handleMinusButtonClick}
+         >
+            マイナス
+        </button>
       </div>
     </div>
   )
