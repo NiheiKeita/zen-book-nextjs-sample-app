@@ -1,21 +1,13 @@
 "use client"
 
-import { useEffect, useState } from "react"
+import { useCounterView } from "./hooks"
 
 export function CounterView() {
-  const [count, setCount] = useState(0)
-  const handlePlusButtonClick = () =>{
-    setCount(count + 1)
-  }
-  const handleMinusButtonClick = () =>{
-    console.log("マイナスボタンがおされた")
-    if(count <= 0 ) return
-    setCount(count - 1)
-  }
-  
-  useEffect(() => {
-    console.log("現在のカウント:", count)
-  }, [count])
+  const {
+    count,
+    handlePlusButtonClick,
+    handleMinusButtonClick
+  } = useCounterView()
 
   return (
     <div className="max-w-md mx-auto mt-10 text-center">
