@@ -8,6 +8,7 @@ export function CounterView() {
     setCount(count + 1)
   }
   const handleMinusButtonClick = () =>{
+    if(count <= 0 ) return
     setCount(count - 1)
   }
 
