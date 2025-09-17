@@ -1,7 +1,10 @@
 import { useEffect, useState } from "react"
+import { Mode } from "./types"
 
 export const useCounterView = () =>{
   const [count, setCount] = useState(0)
+  const [selectMode, setSelectMode] = useState<Mode>('both')
+
   const handlePlusButtonClick = () =>{
     setCount(count + 1)
   }
@@ -9,6 +12,9 @@ export const useCounterView = () =>{
     console.log("マイナスボタンがおされた")
     if(count <= 0 ) return
     setCount(count - 1)
+  }
+  const handleChangeMode = (mode: Mode) =>{
+    setSelectMode(mode)
   }
   
   useEffect(() => {
@@ -18,6 +24,8 @@ export const useCounterView = () =>{
   return{
     count,
     handlePlusButtonClick,
-    handleMinusButtonClick
+    handleMinusButtonClick,
+    selectMode,
+    handleChangeMode,
   }
 } 
