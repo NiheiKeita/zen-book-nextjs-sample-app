@@ -1,5 +1,5 @@
 
-import { expect, within } from "storybook/test"
+import { expect, userEvent, within } from "storybook/test"
 import { CounterView } from "."
 import type { Meta, StoryObj } from '@storybook/nextjs-vite'
 
@@ -18,5 +18,15 @@ export const Test: Story = {
     const canvas = within(canvasElement)
     const counterText = await canvas.findByText("カウンター")
     expect(counterText).toBeVisible()
+
+    const plusButton = await canvas.findByTestId('plusButton')
+    const minusButton = await canvas.findByTestId('minusButton')
+    await expect(await canvas.findByTestId('countText')).toHaveTextContent("0")
+    await userEvent.click(plusButton)
+    await expect(await canvas.findByTestId('countText')).toHaveTextContent("1")
+    await userEvent.click(minusButton)
+    await expect(await canvas.findByTestId('countText')).toHaveTextContent("0")
+    await userEvent.click(minusButton)
+    await expect(await canvas.findByTestId('countText')).toHaveTextContent("0")
   },
 }

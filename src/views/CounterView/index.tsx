@@ -25,19 +25,22 @@ export function CounterView() {
   return (
     <div className="max-w-md mx-auto mt-10 text-center">
       <h1 className="text-2xl font-bold">カウンター</h1>
-      <p className="text-4xl my-4">{count}</p>
+      <p className="text-4xl my-4" data-testid="countText">{count}</p>
       <div className="flex justify-center gap-4"> 
         {showPlus &&
           <button
-          className="px-4 py-2 rounded border border-gray-300 hover:bg-gray-50 active:scale-95"
-          onClick={handlePlusButtonClick}>
+            className="px-4 py-2 rounded border border-gray-300 hover:bg-gray-50 active:scale-95"
+            onClick={handlePlusButtonClick}
+            data-testid="plusButton"
+          >
             プラス
           </button>
         }
         {showMinus &&
           <button
-          className="px-4 py-2 rounded border border-gray-300 hover:bg-gray-50 active:scale-95"
-          onClick={handleMinusButtonClick}
+            className="px-4 py-2 rounded border border-gray-300 hover:bg-gray-50 active:scale-95"
+            onClick={handleMinusButtonClick} 
+            data-testid="minusButton"
           >
               マイナス
           </button>
