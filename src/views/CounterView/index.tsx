@@ -1,6 +1,7 @@
 "use client"
 
 import { useCounterView } from "./hooks"
+import { useCounterView } from "./hooks"
 import { Mode } from "./types"
 
 export function CounterView() {
