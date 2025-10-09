@@ -8,7 +8,7 @@ export function CounterView() {
     count,
     handlePlusButtonClick,
     handleMinusButtonClick,
-    selectMode
+    selectMode,
     handleChangeMode
   } = useCounterView()
 
