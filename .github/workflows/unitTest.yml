@@ -28,6 +28,6 @@ jobs:
         if: steps.cache-playwright.outputs.cache-hit != 'true'
         run: npx playwright install --with-deps
       - name: storybook tests
-        run: npm run test:storybook
+        run: npm run test-storybook
       - name: vitest
         run: npm run test
