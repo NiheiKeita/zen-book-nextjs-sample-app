@@ -14,7 +14,7 @@ jobs:
         run: npm run lint
       - name: type-check
         run: npm run type-check
+      - name: install playwright
+        run: npx playwright install --with-deps
       - name: vitest
-        run: |
-          npx playwright install --with-deps
-          npm run test
+        run: npm run test
