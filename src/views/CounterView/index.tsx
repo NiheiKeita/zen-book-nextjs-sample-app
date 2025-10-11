@@ -13,7 +13,6 @@ export function CounterView() {
   } = useCounterView()
 
   const modes: Mode[] = ['both' , 'plusOnly' , 'minusOnly']
-  const modes: Mode[] = ['both' , 'plusOnly' , 'minusOnly']
   const modeLabels: Record<Mode, string> = {
     both: '両方表示',
     plusOnly: 'プラスのみ',
