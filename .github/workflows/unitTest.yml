@@ -24,11 +24,9 @@ jobs:
         with:
           path: ~/.cache/ms-playwright
           key: ${{ runner.os }}-playwright-${{ hashFiles('package-lock.json') }}
-      - name: install playwright deps
-        run: npx playwright install-deps
       - name: install playwright
         if: steps.cache-playwright.outputs.cache-hit != 'true'
-        run: npx playwright install chromium
+        run: npx playwright install --with-deps
       - name: storybook tests
         run: npm run test:storybook
       - name: vitest
