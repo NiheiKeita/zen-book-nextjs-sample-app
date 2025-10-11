@@ -19,6 +19,7 @@ export function CounterView() {
     minusOnly: 'マイナスのみ',
   }
 
+  
   const showPlus  = selectMode === 'both' || selectMode === 'plusOnly'
   const showMinus = selectMode === 'both' || selectMode === 'minusOnly'
 
