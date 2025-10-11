@@ -18,9 +18,18 @@ jobs:
         run: npm run lint
       - name: type-check
         run: npm run type-check
+      - name: cache playwright browsers
+        id: cache-playwright
+        uses: actions/cache@v4
+        with:
+          path: ~/.cache/ms-playwright
+          key: ${{ runner.os }}-playwright-${{ hashFiles('package-lock.json') }}
+      - name: install playwright deps
+        run: npx playwright install-deps
       - name: install playwright
-        run: npx playwright install --with-deps
+        if: steps.cache-playwright.outputs.cache-hit != 'true'
+        run: npx playwright install chromium
+      - name: storybook tests
+        run: npm run test:storybook
       - name: vitest
         run: npm run test
-      - name: storybook tests
-        run: npm run test-storybook
