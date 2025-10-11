@@ -19,4 +19,4 @@ jobs:
       - name: vitest
         run: npm run test
       - name: storybook tests
-        run: npm run test:storybook
+        run: npm run test-storybook
