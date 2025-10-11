@@ -18,3 +18,5 @@ jobs:
         run: npx playwright install --with-deps
       - name: vitest
         run: npm run test
+      - name: storybook tests
+        run: npm run test:storybook
