@@ -1,0 +1,33 @@
+name: unitTest
+
+on: [pull_request]
+
+jobs:
+  unitTest:
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    steps:
+      - uses: actions/checkout@v4
+      - name: Setup Node
+        uses: actions/setup-node@v4
+        with:
+          node-version: 22
+      - name: npm ci
+        run: npm ci
+      - name: eslint
+        run: npm run lint
+      - name: type-check
+        run: npm run type-check
+      - name: cache playwright browsers
+        id: cache-playwright
+        uses: actions/cache@v4
+        with:
+          path: ~/.cache/ms-playwright
+          key: ${{ runner.os }}-playwright-${{ hashFiles('package-lock.json') }}
+      - name: install playwright
+        if: steps.cache-playwright.outputs.cache-hit != 'true'
+        run: npx playwright install --with-deps
+      - name: storybook tests
+        run: npm run test-storybook
+      - name: vitest
+        run: npm run test
