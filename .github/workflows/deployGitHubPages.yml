@@ -1,9 +1,10 @@
 name: Deploy to GitHub Pages
 
-on:
-  push:
-    tags:
-      - "ghpv.*.*.*"
+on: [pull_request]
+# on:
+#   push:
+#     tags:
+#       - "ghpv.*.*.*"
 
 permissions:
   contents: read
