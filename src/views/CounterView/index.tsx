@@ -48,7 +48,7 @@ export function CounterView() {
         }
       </div>
       <div className="mt-6">
-        <div className="text-sm text-gray-600 mb-2">表示ボタンモード</div>
+        <div className="text-sm text-gray-600 mb-2">表示ボタンモードテスト</div>
         <div className="flex flex-wrap gap-3">
           {modes.map((mode) => (
             <label key={mode} className="inline-flex items-center gap-2">
