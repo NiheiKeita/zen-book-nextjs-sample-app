@@ -13,6 +13,14 @@ export default defineConfig({
   plugins: [tsconfigPaths(), react()],
   test: {
     environment: 'jsdom',
+    coverage: {
+      provider: 'v8',
+      include: [
+        'src/components/**/*.{js,jsx,ts,tsx}',
+        'src/views/**/*.{js,jsx,ts,tsx}',
+        'src/hooks/**/*.{js,jsx,ts,tsx}'
+      ]
+    },
     projects: [{
       extends: true,
       plugins: [
