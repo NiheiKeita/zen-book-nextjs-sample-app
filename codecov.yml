@@ -9,4 +9,5 @@ coverage:
 comment:
   layout: "reach, diff, flags, files"
   behavior: default
-
+github_checks:
+  annotations: true
