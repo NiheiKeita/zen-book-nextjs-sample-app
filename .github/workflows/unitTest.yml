@@ -30,4 +30,9 @@ jobs:
       - name: storybook tests
         run: npm run test-storybook
       - name: vitest
-        run: npm run test
+        run: npm run test:coverage
+      - name: Upload Coverage
+        uses: codecov/codecov-action@v1
+        with:
+          token: ${{ secrets.CODECOV_TOKEN }}
+          fail_ci_if_error: "true"
